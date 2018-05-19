@@ -6,7 +6,7 @@
 /*   By: tmerli <tmerli@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/03/14 12:32:38 by tmerli            #+#    #+#             */
-/*   Updated: 2018/03/14 12:32:40 by tmerli           ###   ########.fr       */
+/*   Updated: 2018/05/15 19:47:43 by tmerli           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,6 +23,7 @@ typedef struct	s_list
 	struct s_list	*next;
 }				t_list;
 
+char			*ft_strndup(const char *s, unsigned int n);
 void			ft_putnbrdl(int nb);
 int				ft_abs(int nb);
 int				ft_toupper(int c);

@@ -6,7 +6,7 @@
 /*   By: tmerli <tmerli@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/03/23 18:10:02 by tmerli            #+#    #+#             */
-/*   Updated: 2018/04/25 20:19:57 by tmerli           ###   ########.fr       */
+/*   Updated: 2018/05/15 20:48:42 by tmerli           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -59,7 +59,7 @@ void	get_paths(t_map *map)
 	t_nod	*path;
 
 	if (!map->a_list)
-		return;
+		return ;
 	nb = map->nb_ants;
 	while ((path = bfs(map, map->a_list, map->start->pos,
 					map->end->pos)))

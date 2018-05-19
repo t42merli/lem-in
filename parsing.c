@@ -6,7 +6,7 @@
 /*   By: tmerli <tmerli@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/03/14 11:35:26 by tmerli            #+#    #+#             */
-/*   Updated: 2018/04/25 19:54:55 by tmerli           ###   ########.fr       */
+/*   Updated: 2018/05/15 20:22:55 by tmerli           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -53,6 +53,8 @@ void	make_adjency_list(t_map *map, t_tube *tubes)
 	t_nod *from;
 	t_nod *to;
 
+	if (!map->a_list)
+		return ;
 	delete_double_tubes(tubes);
 	while (tubes)
 	{
@@ -68,18 +70,16 @@ void	make_adjency_list(t_map *map, t_tube *tubes)
 
 int		parse2(t_map *map, char *line, int *ordre, int *ext)
 {
-	if (!*ordre && is_nb_ant(line, ordre))
+	if (!*ordre && is_nb_ant(line))
+	{
+		*ordre = 1;
 		map->nb_ants = ft_atoi(line);
+	}
+	else if (is_tube(map, line, map->boites))
+		*ordre = 2;
 	else if (*ordre == 1 && is_boite(line, map->boites))
 		get_boite(line, map, ext);
-	else if (*ordre == 1)
-	{
-		*ordre = 2;
-		create_adjency_list(map);
-	}
-	if (*ordre == 2 && is_tube(line, map->boites))
-		get_tubes(line, map);
-	else if (*ordre == 2)
+	else
 		return (0);
 	return (1);
 }
@@ -102,5 +102,6 @@ void	parse(t_map *map)
 		add_line(line, map);
 	}
 	free(line);
+	create_adjency_list(map);
 	make_adjency_list(map, map->tubes);
 }

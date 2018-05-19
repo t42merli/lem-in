@@ -6,7 +6,7 @@
 /*   By: tmerli <tmerli@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/02/20 01:26:15 by tmerli            #+#    #+#             */
-/*   Updated: 2018/04/20 16:33:09 by tmerli           ###   ########.fr       */
+/*   Updated: 2018/05/16 17:22:14 by tmerli           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,6 +14,7 @@
 # define LEMIN_H
 # include "libft/libft.h"
 # include "get_next_line.h"
+# include <stdio.h>
 
 typedef struct	s_boite
 {
@@ -71,12 +72,14 @@ typedef struct	s_map
 	t_path	*paths;
 }				t_map;
 
+int				is_boite(char *line, t_boite *boites);
+int				is_tube(t_map *map, char *line, t_boite *boites);
+int				get_tubes(t_map *map, t_boite *from, t_boite *to);
 void			print_path(t_map *map, t_path *paths);
 t_nod			*bfs(t_map *map, t_head **al, int start, int end);
 int				move_ants(t_path *paths);
 void			create_adjency_list(t_map *map);
 void			add_line(char *line, t_map *map);
-void			get_tubes(char *line, t_map *map);
 void			get_boite(char *line, t_map *map, int *ext);
 void			lemin(int ants, t_head **al, t_path *paths);
 void			free_nods(t_nod **nods);
@@ -86,9 +89,7 @@ void			print_map(t_map *map);
 void			free_map(t_map *map);
 int				check_map(t_map *map);
 void			parse(t_map *map);
-int				is_nb_ant(char *line, int *ordre);
-int				is_boite(char *line, t_boite *boites);
+int				is_nb_ant(char *line);
 int				commentaire(char *line, int *ext);
-int				is_tube(char *line, t_boite *boites);
 
 #endif

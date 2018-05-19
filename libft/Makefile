@@ -6,13 +6,14 @@
 #    By: tmerli <tmerli@student.42.fr>              +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2018/03/14 12:32:50 by tmerli            #+#    #+#              #
-#    Updated: 2018/03/14 12:49:53 by tmerli           ###   ########.fr        #
+#    Updated: 2018/05/15 19:51:27 by tmerli           ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
 NAME = libft.a
 
-SRC = ft_atoi.c\
+SRC = ft_strndup.c\
+	  ft_atoi.c\
 	  ft_islower.c\
 	  ft_lstdelone.c\
 	  ft_memchr.c\
